@@ -4,7 +4,7 @@ export function ResumeHeaderField(props: ComponentPropsWithoutRef<'span'> & {
     icon: ReactComponentElement<'svg'>
     value: string
 }) {
-    return <span className="flex justify-center items-center">
+    return <span className="flex justify-center items-center whitespace-nowrap">
         {props.icon}
         <span className="w-2"></span>
         {props.value}
