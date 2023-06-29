@@ -4,7 +4,7 @@
 
 @import "./typora-lark.css";
 
-h3 {
+#write h3 {
     @apply flex items-center;
 
     img {
@@ -12,6 +12,7 @@ h3 {
     }
 }
 
-ul {
+#write ul,
+#write li {
     @apply relative;
 }
