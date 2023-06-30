@@ -7,7 +7,25 @@ function Button() {
 
     const isDark = () => theme === 'system' ? systemTheme === 'dark' : theme === 'dark'
 
-    const toggleTheme = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    function toggleTheme() {
+        if (systemTheme === undefined) {
+            theme === 'dark' ? setTheme('light') : setTheme('dark')
+            return
+        }
+
+        if (theme === 'system') {
+            systemTheme === 'dark' ? setTheme('light') : setTheme('dark')
+            return
+        }
+
+        if (theme === systemTheme) {
+            theme === 'dark' ? setTheme('light') : setTheme('dark')
+        } else {
+            setTheme('system')
+        }
+    }
+
+    function toggleThemeWithViewTransition(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         const x = event.clientX
         const y = event.clientY
         const endRadius = Math.hypot(
@@ -17,22 +35,8 @@ function Button() {
 
         // @ts-expect-error startViewTransition
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
-        const transition = document.startViewTransition(() => {
-            if (systemTheme === undefined) {
-                theme === 'dark' ? setTheme('light') : setTheme('dark')
-                return
-            }
-
-            if (theme === 'system') {
-                systemTheme === 'dark' ? setTheme('light') : setTheme('dark')
-                return
-            }
-
-            if (theme === systemTheme) {
-                theme === 'dark' ? setTheme('light') : setTheme('dark')
-            } else {
-                setTheme('system')
-            }
+        const transition = document.startViewTransition?.(() => {
+            toggleTheme()
         })
 
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
@@ -56,11 +60,20 @@ function Button() {
         })
     }
 
+    function clickHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+        // @ts-expect-error: View Transition api not ready with ts
+        if (!document.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches === true) {
+            toggleTheme()
+            return
+        }
+        toggleThemeWithViewTransition(event)
+    }
+
     return (
         <button
             type="button"
             className="transition-all duration-100 dark:text-gray-50 text-gray-800 float-right p-4"
-            onClick={e => toggleTheme(e)}
+            onClick={e => clickHandler(e)}
         >
             {
                 isDark() ? <MdOutlineLightMode size="24px" /> : <MdOutlineDarkMode size="24px" />

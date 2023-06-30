@@ -6,14 +6,16 @@
 @import "./theme.switch.css";
 @import "./typora-lark-override.css";
 
-body, #write {
+body,
+#write {
     font-family: -apple-system, Helvetica Neue, Helvetica, Arial, PingFang SC, Hiragino Sans GB, WenQuanYi Micro Hei,
         Microsoft Yahei, sans-serif;
     font-size: 17px;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    body, #write {
+    body,
+    #write {
         font-family: "Times New Roman", "Songti SC", "Songti", "AR PL Sungti", serif;
     }
 }
