@@ -4,10 +4,8 @@ import { SiExpress, SiNextdotjs, SiNginx, SiNuxtdotjs, SiOpenai, SiPrisma, SiRol
 import { FaUbuntu } from 'react-icons/fa'
 import { BsCircleFill, BsFillLightningFill, BsGit } from 'react-icons/bs'
 import { GoCopilot } from 'react-icons/go'
-import clsx from 'clsx'
 
 import ArcIcon from 'public/icons/arc.svg'
-import styles from './Badge.module.scss'
 
 export type BadgeVariantType =
 'Vue' | 'React'
@@ -115,7 +113,12 @@ const variants: Record<BadgeVariantType, { comp: ReactElement; color: string }> 
 
 export function Badge(variant: BadgeVariantType) {
     return <span
-        className={clsx(styles.badge, 'text-xs sm:text-sm font-medium mr-2 px-2 sm:px-2.5 py-0.5 rounded text-white font-mono whitespace-nowrap border border-transparent dark:border-gray-600')}
+        className="
+            inline-flex items-center space-x-1
+            text-xs sm:text-sm text-white font-medium font-mono
+            mr-2 px-2 sm:px-2.5 py-0.5 rounded
+            border border-transparent dark:border-gray-600
+        "
         style={{ backgroundColor: variants[variant].color }}>
         {variants[variant].comp }
         <span>{variant}</span>
