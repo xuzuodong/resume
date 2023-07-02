@@ -1,6 +1,6 @@
 import { AiFillGithub } from 'react-icons/ai'
 
-export function ResumeFooter() {
+export function Footer() {
     return <footer className="max-w-2xl text-center pb-8 pt-2 m-auto op-60">
         <hr
             className="border-black dark:border-white border-opacity-8 dark:border-opacity-8"
@@ -10,7 +10,7 @@ export function ResumeFooter() {
                 <div className="text-xs flex items-center space-x-1.5">
                     <span>© {new Date().getFullYear()}</span>
                     <span>Ted Xu</span>
-                    <a href="https://github.com/xuzuodong/resume" target="_blank" style={{ color: 'var(--text-color)' }}>
+                    <a href="https://github.com/xuzuodong/resume" target="_blank">
                         <AiFillGithub size="16px" />
                     </a>
                 </div>
@@ -22,7 +22,6 @@ export function ResumeFooter() {
                     href="https://nextjs.org/"
                     rel="noopener noreferrer"
                     target="_blank"
-                    style={{ color: 'var(--text-color)' }}
                 >
                     Next.js
                 </a>
@@ -31,7 +30,6 @@ export function ResumeFooter() {
                     href="https://vercel.com/home"
                     rel="noopener noreferrer"
                     target="_blank"
-                    style={{ color: 'var(--text-color)' }}
                 >
                     Vercel
                 </a>

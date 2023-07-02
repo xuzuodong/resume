@@ -2,6 +2,7 @@ import { type AppType } from 'next/dist/shared/lib/utils'
 import '~/styles/global.scss'
 import { ThemeProvider } from 'next-themes'
 
+import { Footer } from '~/components/Footer'
 import ButtonTheme from '~/components/ButtonTheme'
 
 const MyApp: AppType = ({ Component, pageProps }) => {
@@ -10,6 +11,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
         <div id="write">
             <Component {...pageProps} />
         </div>
+        <Footer />
     </ThemeProvider>
 }
 
