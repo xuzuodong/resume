@@ -4,7 +4,7 @@ body,
 }
 
 #write {
-    @apply mt-0;
+    @apply my-0 pb-0;
 }
 
 #write h3 {
