@@ -1,7 +1,7 @@
 import { AiFillGithub } from 'react-icons/ai'
 
 export function Footer() {
-    return <footer className="max-w-2xl text-center pb-8 pt-2 m-auto op-60">
+    return <footer className="max-w-[860px] text-center pb-8 pt-2 mx-auto mt-8">
         <hr
             className="border-black dark:border-white border-opacity-8 dark:border-opacity-8"
         />
