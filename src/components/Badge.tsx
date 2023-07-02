@@ -1,4 +1,4 @@
-import React, { type ReactElement } from 'react'
+import React, { type ComponentPropsWithoutRef, type ReactElement } from 'react'
 import { BiLogoApple, BiLogoChrome, BiLogoDocker, BiLogoReact, BiLogoVisualStudio, BiLogoVuejs } from 'react-icons/bi'
 import { SiExpress, SiNextdotjs, SiNginx, SiNuxtdotjs, SiOpenai, SiPrisma, SiRollupdotjs, SiTrpc, SiVercel, SiWarp, SiWebpack } from 'react-icons/si'
 import { FaUbuntu } from 'react-icons/fa'
@@ -111,7 +111,9 @@ const variants: Record<BadgeVariantType, { comp: ReactElement; color: string }> 
     },
 }
 
-export function Badge(variant: BadgeVariantType) {
+export function Badge(props: ComponentPropsWithoutRef<'span'> & {
+    variant: BadgeVariantType
+}) {
     return <span
         className="
             inline-flex items-center space-x-1
@@ -119,8 +121,8 @@ export function Badge(variant: BadgeVariantType) {
             mr-2 px-2 sm:px-2.5 py-0.5 rounded
             border border-transparent dark:border-gray-600
         "
-        style={{ backgroundColor: variants[variant].color }}>
-        {variants[variant].comp }
-        <span>{variant}</span>
+        style={{ backgroundColor: variants[props.variant].color }}>
+        {variants[props.variant].comp }
+        <span>{props.variant}</span>
     </span>
 }
