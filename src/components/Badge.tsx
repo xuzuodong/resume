@@ -117,7 +117,7 @@ export function Badge(props: ComponentPropsWithoutRef<'span'> & {
     return <span
         className="
             inline-flex items-center space-x-1
-            text-xs md:text-sm text-white font-medium font-mono
+            text-xs text-white font-medium font-mono
             mr-1.5 sm:mr-2 px-1 sm:px-2 md:px-2.5 py-0.5 rounded
             border border-transparent dark:border-gray-600
         "
